@@ -2,7 +2,8 @@ OBJS_SMS=\
 	main.o
 
 OBJS_PROVIDERS=\
-	providers/1881.o
+	providers/1881.o\
+	providers/eurobate.o
 
 OBJS_ALL=\
 	$(OBJS_SMS)\
