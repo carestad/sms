@@ -10,10 +10,11 @@ OBJS_ALL=\
 
 CC=g++
 CFLAGS=-Wall -g
+LIBS=-lcurl
 
 all: sms
 sms: $(OBJS_ALL)
-	$(CC) $(CFLAGS) $(OBJS_ALL) -o $@
+	$(CC) $(CFLAGS) $(OBJS_ALL) $(LIBS) -o $@
 
 %.o : %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
