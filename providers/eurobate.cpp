@@ -15,8 +15,8 @@ bool Eurobate::send(std::string to, std::string from, std::string message)
   curl = curl_easy_init();
 
   std::stringstream dataStream;
-  dataStream << "countrylist=47&gsm=" << from << "&melding=" << message;
-  dataStream << "&option=com_gratissms&task=send&usr_gsm=" << to;
+  dataStream << "countrylist=47&gsm=" << to << "&melding=" << message;
+  dataStream << "&option=com_gratissms&task=send&usr_gsm=" << from;
 
   std::string data = dataStream.str();
 
