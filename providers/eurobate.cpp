@@ -14,14 +14,16 @@ bool Eurobate::send(std::string to, std::string from, std::string message)
   CURL *curl;
   curl = curl_easy_init();
 
-  std::string post = "countrylist=47&gsm=%s&melding=%s&option=com_gratissms&task=send&usr_gsm=%s";
-  char data[post.length() + to.length() + message.length() + 1];
-  sprintf(data, post.c_str(), from.c_str(), message.c_str(), to.c_str());
+  std::stringstream dataStream;
+  dataStream << "countrylist=47&gsm=" << from << "&melding=" << message;
+  dataStream << "&option=com_gratissms&task=send&usr_gsm=" << to;
+
+  std::string data = dataStream.str();
 
   std::cout << "POST: " << data << std::endl;
 
-  curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
-  curl_easy_setopt(curl, CURLOPT_URL, 
+  curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
+  curl_easy_setopt(curl, CURLOPT_URL,
                    "http://eurobate.com/index.php");
   curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "cookies.txt");
   curl_easy_perform(curl);
