@@ -1,5 +1,5 @@
-#ifndef __PROVIDER_H__
-#define __PROVIDER_H__
+#ifndef __N_1881_H__
+#define __N_1881_H__
 
 #include "provider.h"
 #include <string>
@@ -11,4 +11,4 @@ class N1881 : public Provider
   bool send(int to, std::string message);
 };
 
-#endif //__PROVIDER_H__
+#endif //__N_1881_H__
