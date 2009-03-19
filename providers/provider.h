@@ -6,11 +6,11 @@
 class Provider
 {
  protected:
-  string username;
-  string password;
+  std::string username;
+  std::string password;
  public:
-  virtual void setup(string username, string password) = 0;
-  virtual void send(int to, string message) = 0;
+  virtual void setup(std::string username, std::string password) = 0;
+  virtual bool send(int to, std::string message) = 0;
 };
 
 #endif // __PROVIDER_H
